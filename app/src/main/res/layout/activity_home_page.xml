@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.BeastBattle">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="387dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/textview_border"
+        android:gravity="center"
+        android:text="@string/home_page"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="142dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="256dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/home_screen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="385dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/textview_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginBottom="20dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="366dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="372dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/beast_battle"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="383dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/textview_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginBottom="20dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="366dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="20dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="366dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/statistics"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="388dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="456dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/textview_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginBottom="20dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="366dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/information_of_user"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/dep_user"
+        android:layout_width="366dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="366dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="424dp"
+        android:layout_marginEnd="20dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/h_viewinfo"
+        android:layout_width="366dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/format"
+        android:text="@string/view_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/h_viewbb"
+        android:layout_width="369dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="476dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/format"
+        android:text="@string/view_beast_battle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/home_viewsta"
+        android:layout_width="372dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/format"
+        android:text="@string/view_statistics"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
