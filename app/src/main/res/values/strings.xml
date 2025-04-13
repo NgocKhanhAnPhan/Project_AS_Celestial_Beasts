@@ -37,4 +37,6 @@
     <string name="view_statistics">View Statistics</string>
     <string name="beast_battle">Beast Battle</string>
     <string name="view_beast_battle">View Beast Battle</string>
+    <string name="information">Information</string>
+    <string name="log_out">Log out</string>
 </resources>

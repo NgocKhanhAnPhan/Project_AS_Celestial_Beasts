@@ -16,6 +16,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.project.View.BeastBattle;
+import com.example.project.View.UserInfomation;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -52,6 +53,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (isLoggedId){
                     Intent intent = new Intent(LoginActivity.this, HomePage.class);
                     startActivity(intent);
+
+                    Intent intents = new Intent(LoginActivity.this, UserInfomation.class);
+                    intents.putExtra("username", name.getText().toString());
+                    intents.putExtra("password", password.getText().toString());
+                    startActivity(intents);
                 } else {
                     Toast.makeText(LoginActivity.this, "Login Failed. If you do not have an account, please register. ", Toast.LENGTH_SHORT).show();
                 }

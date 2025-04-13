@@ -3,6 +3,7 @@ package com.example.project.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +17,7 @@ import com.example.project.R;
 public class BeastBattle extends AppCompatActivity {
 
     Button vhome, vtrain, vbatlle, create, movtohomepage;
-
-
+    TextView debehome, detrain, debat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,10 @@ public class BeastBattle extends AppCompatActivity {
             Intent intent = new Intent (BeastBattle.this, HomePage.class);
             startActivity(intent);
         });
+
+        debehome = findViewById(R.id.textView15);
+        detrain = findViewById(R.id.textView17);
+        debat = findViewById(R.id.textView22);
 
     }
 }

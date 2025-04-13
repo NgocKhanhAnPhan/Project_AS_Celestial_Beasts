@@ -50,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
         TextView au = findViewById(R.id.textView2);
         au.setText("An Phan / Sumeya Samsun");
 
-        Button btn_yes = findViewById(R.id.button2);
+        Button btn_yes = findViewById(R.id.button);
         btn_yes.setOnClickListener(v -> {
-            Intent intent2 = new Intent(MainActivity.this, LoginActivity.class);
-           startActivity(intent2);
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+           startActivity(intent);
         });
 
         }

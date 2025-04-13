@@ -41,10 +41,10 @@ public class HomePage extends AppCompatActivity {
             startActivity(intent);
         });
 
-        //viewbb = findViewById(R.id.h_viewbb);
-        //viewbb.setOnClickListener( v-> {
-            //Intent intent = new Intent(HomePage.this, BeastBattle.class);
-            //startActivity(intent);
-        //});
+        viewbb = findViewById(R.id.h_viewbb);
+        viewbb.setOnClickListener( v-> {
+            Intent intent = new Intent(HomePage.this, BeastBattle.class);
+            startActivity(intent);
+        });
     }
 }
