@@ -77,7 +77,8 @@
         android:layout_height="43dp"
         android:layout_marginTop="236dp"
         android:layout_marginEnd="20dp"
-        android:text="TextView"
+        android:textSize="15sp"
+        android:text="Information about each Beast."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView12"
         tools:ignore="MissingConstraints" />
@@ -126,8 +127,9 @@
         android:layout_height="43dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="20dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="17sp"
+
+        android:text="@string/view_here_to_see_the_user_and_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView12"
         tools:ignore="MissingConstraints" />
@@ -138,7 +140,8 @@
         android:layout_height="43dp"
         android:layout_marginTop="424dp"
         android:layout_marginEnd="20dp"
-        android:text="TextView"
+        android:textSize="15sp"
+        android:text="@string/some_filed_for_the_beasts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView12"
         tools:ignore="MissingConstraints" />

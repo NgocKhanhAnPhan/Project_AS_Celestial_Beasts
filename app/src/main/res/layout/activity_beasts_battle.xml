@@ -23,18 +23,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/createnew"
-        android:layout_width="227dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="98dp"
-        android:layout_marginBottom="60dp"
-        android:background="#006622"
-        android:text="@string/create_new_lutemon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
-
     <TextView
         android:id="@+id/textView11"
         android:layout_width="113dp"
@@ -50,8 +38,8 @@
         android:id="@+id/textView12"
         android:layout_width="385dp"
         android:layout_height="163dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="12dp"
         android:background="@drawable/textview_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -75,12 +63,13 @@
         android:id="@+id/textView13"
         android:layout_width="385dp"
         android:layout_height="169dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
         android:background="@drawable/textview_home"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewhome"
         app:layout_goneMarginBottom="20dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="15dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView17"
@@ -110,12 +99,13 @@
         android:id="@+id/textView14"
         android:layout_width="385dp"
         android:layout_height="166dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/textview_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:layout_goneMarginBottom="20dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="15dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView15"
@@ -146,9 +136,10 @@
         android:layout_width="366dp"
         android:layout_height="43dp"
         android:layout_marginTop="416dp"
+        android:layout_marginEnd="20dp"
         android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView12"
-        tools:layout_editor_absoluteX="25dp"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -167,12 +158,13 @@
         android:id="@+id/viewbattle"
         android:layout_width="369dp"
         android:layout_height="50dp"
-        android:layout_marginTop="460dp"
-        android:text="@string/view_battle_area"
+        android:layout_marginTop="468dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/format"
+        android:text="@string/view_battle_area"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView12"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="24dp" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/viewtrain"
@@ -188,12 +180,23 @@
 
     <Button
         android:id="@+id/bb_move_to_home"
-        android:layout_width="167dp"
-        android:layout_height="53dp"
+        android:layout_width="173dp"
+        android:layout_height="57dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
         android:text="@string/move_to_home_page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="199dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="56dp"
+        android:text="@string/create_new_beast"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,8 +3,92 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context=".View.CreateNewBeasts">
 
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="385dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/textview_border"
+        android:gravity="center"
+        android:text="@string/create_new_beast"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/select"
+        android:layout_width="385dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="160dp"
+        android:text="@string/select_beast"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/re_beast"
+        android:layout_width="428dp"
+        android:layout_height="459dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="208dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/beat_name"
+        android:layout_width="384dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/textview_home"
+        android:ems="10"
+        android:hint="@string/enter_the_beast_name"
+        android:inputType="text"
+        android:padding="10sp"
+        android:maxLength="8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_create"
+        android:layout_width="186dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="104dp"
+        android:gravity="center"
+        android:text="@string/create"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="186dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_cacel"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

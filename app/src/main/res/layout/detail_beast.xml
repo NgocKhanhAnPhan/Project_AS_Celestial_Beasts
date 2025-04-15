@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="450dp"
+    android:layout_height="223dp">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="391dp"
+        android:layout_height="187dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textview_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:id="@+id/btn_tick"
+        android:layout_width="51dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="356dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/c_elem"
+        android:layout_width="223dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="64dp"
+        android:text="@string/element"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/c_char"
+        android:layout_width="93dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="160dp"
+        android:gravity="center"
+        android:text="@string/character"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/c_health"
+        android:layout_width="44dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="184dp"
+        android:gravity="center"
+        android:text="@string/health"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/c_attack"
+        android:layout_width="50dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="132dp"
+        android:gravity="center"
+        android:text="@string/attack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/c_defen"
+        android:layout_width="53dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="64dp"
+        android:gravity="center"
+        android:text="@string/defense"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/c_maxhel"
+        android:layout_width="52dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="64dp"
+        android:gravity="center"
+        android:text="@string/maxhealth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="125dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image1" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="49dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="76dp"
+        android:gravity="center"
+        android:text="@string/helth1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="46dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="116dp"
+        android:gravity="center"
+        android:text="@string/maxh"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="44dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="132dp"
+        android:gravity="center"
+        android:text="@string/atk"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="42dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="292dp"
+        android:layout_marginTop="132dp"
+        android:gravity="center"
+        android:text="@string/dfs"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

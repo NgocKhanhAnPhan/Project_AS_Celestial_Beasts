@@ -7,11 +7,13 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.project.HomePage;
+import com.example.project.Model.BeastStorage;
 import com.example.project.R;
 
 public class BeastBattle extends AppCompatActivity {
@@ -48,10 +50,11 @@ public class BeastBattle extends AppCompatActivity {
             startActivity(intent);
         });
 
-        create = findViewById(R.id.createnew);
+        create = findViewById(R.id.button5);
+        create.setBackgroundColor(ContextCompat.getColor(this, R.color.in));
         create.setOnClickListener(v -> {
-            Intent intent = new Intent (BeastBattle.this, CreateNewBeasts.class);
-            startActivity(intent);
+            Intent intent2 = new Intent (BeastBattle.this, CreateNewBeasts.class);
+            startActivity(intent2);
         });
 
         movtohomepage = findViewById(R.id.bb_move_to_home);
@@ -64,5 +67,30 @@ public class BeastBattle extends AppCompatActivity {
         detrain = findViewById(R.id.textView17);
         debat = findViewById(R.id.textView22);
 
+        updateCounts();
     }
+
+    // demonstrating the beast in home.
+    protected void onResume() {
+        super.onResume();
+        updateCounts(); // Update when come back BeastBattle
+    }
+
+    //update count
+
+    private void updateCounts() {
+        BeastStorage storage = BeastStorage.getInstance();
+
+        int homeCount = storage.countBeastsInHome();
+        int trainingCount = storage.countBeastsInTraining();
+        int battleCount = storage.countBeastsInBattle();
+
+        debehome.setText("You have " + homeCount + " in home.");
+        detrain.setText("You have " + trainingCount + " in training field.");
+        debat.setText("You have " + battleCount + " in battle field.");
+    }
+
+
+
+
 }
