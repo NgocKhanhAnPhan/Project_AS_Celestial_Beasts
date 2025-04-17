@@ -1,5 +1,6 @@
 package com.example.project.View;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -18,9 +19,12 @@ import com.example.project.Adapter.HomeAdapter;
 import com.example.project.HomePage;
 import com.example.project.Model.BeastStorage;
 import com.example.project.Model.CreateBeast;
+import com.example.project.Model.Location;
 import com.example.project.R;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class Home extends AppCompatActivity {
     private Button homepage, training, battle;
@@ -30,6 +34,7 @@ public class Home extends AppCompatActivity {
     private RecyclerView recyclerView;
     private HomeAdapter homeAdapter;
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,15 +68,17 @@ public class Home extends AppCompatActivity {
 
 
                 //Update the List
-                homeAdapter.setData(new ArrayList<>(BeastStorage.getInstance().getAllBeasts().values()));
+                homeAdapter.setData(BeastStorage.getInstance().getBeastsByLocation(Location.HOME));
+                homeAdapter.notifyDataSetChanged();
 
-                HomeAdapter.setSelectedBeast(null);
+                HomeAdapter.setSelectedBeast(Optional.ofNullable(null));
 
                 Toast.makeText(this, selected.getCustomName() + " moved to Training!", Toast.LENGTH_SHORT).show();
 
 
                 Toast.makeText(this, selected.getCustomName() + " moved to Training!", Toast.LENGTH_SHORT).show();
             }
+
 
             Intent intent = new Intent(Home.this, Training.class);
             startActivity(intent);
@@ -82,5 +89,22 @@ public class Home extends AppCompatActivity {
             Intent intent = new Intent (Home.this, Battle.class);
             startActivity(intent);
         });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //  Beast in HOME
+        List<CreateBeast> homeBeasts = new ArrayList<>();
+        for (CreateBeast beast : BeastStorage.getInstance().getAllBeasts().values()) {
+            if (beast.getLocation() == Location.HOME) {  // Only selected beast in HOME
+                homeBeasts.add(beast);
+            }
+        }
+
+        // Update RecyclerView
+        homeAdapter.setData(homeBeasts); // Update the data.
     }
 }

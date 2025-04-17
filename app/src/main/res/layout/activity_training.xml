@@ -9,11 +9,11 @@
 
     <Button
         android:id="@+id/button11"
-        android:layout_width="112dp"
-        android:layout_height="51dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="64dp"
-        android:text="Button"
+        android:layout_width="151dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="72dp"
+        android:text="@string/move_to_home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -33,29 +33,41 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="400dp"
-        android:layout_height="190dp"
+        android:id="@+id/re_trainingbeast"
+        android:layout_width="401dp"
+        android:layout_height="210dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="84dp"
+        android:background="@drawable/textview_home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="112dp"
-        android:layout_height="51dp"
+        android:layout_width="162dp"
+        android:layout_height="64dp"
         android:layout_marginStart="40dp"
-        android:layout_marginBottom="64dp"
-        android:text="Button"
+        android:layout_marginBottom="68dp"
+        android:text="@string/training_selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button12"
-        android:layout_width="334dp"
-        android:layout_height="56dp"
+        android:layout_width="356dp"
+        android:layout_height="68dp"
         android:layout_marginStart="40dp"
-        android:text="Button"
+        android:text="Choose the training mode."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="166dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="140dp"
+        android:text="@string/convert_exp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

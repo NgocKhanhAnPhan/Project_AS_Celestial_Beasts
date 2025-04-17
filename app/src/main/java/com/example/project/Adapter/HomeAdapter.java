@@ -45,6 +45,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         notifyDataSetChanged();
     }
 
+    // Update RecyclerView when selected
+
+    public void setSelectedBeast(CreateBeast beast) {
+        this.selectedBeast = beast;
+        notifyDataSetChanged();
+    }
+
+
     @NonNull
     @Override
     public HomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -68,14 +76,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         holder.tvmaxheal.setText(String.valueOf(beast.getBeast().getMaxHeal()));
         holder.imagebeast.setImageResource(beast.getBeast().getImageResource());
 
-        holder.radioButton.setOnCheckedChangeListener(null); // Reset listener khi view được reuse
+        holder.radioButton.setOnCheckedChangeListener(null); // Reset listener when view is reuse
 
         holder.radioButton.setChecked(beast.equals(selectedBeast));
 
         holder.radioButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 selectedBeast = beast;
-                notifyDataSetChanged(); // Update để reset các radio button khác
+                notifyDataSetChanged(); // Update to reset different radio button
             }
         });
 

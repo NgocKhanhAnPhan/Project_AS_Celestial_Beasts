@@ -3,10 +3,12 @@ package com.example.project.Model;
 public class CreateBeast {
     String customName;
     Beast beast;
+    int trainingCount;
 
     public CreateBeast (String customName, Beast beast){
         this.customName = customName;
         this.beast = beast;
+        this.trainingCount = 0;
     }
 
     private Location location = Location.HOME;
@@ -19,6 +21,13 @@ public class CreateBeast {
         this.location = location;
     }
 
+    public int getTrainingCount() {
+        return trainingCount;
+    }
+
+    public void setTrainingCount(int trainingCount) {
+        this.trainingCount = trainingCount;
+    }
 
     public void setBeast(Beast beast) {
         this.beast = beast;
@@ -34,5 +43,11 @@ public class CreateBeast {
 
     public Beast getBeast() {
         return beast;
+    }
+
+    public void addExp(int value) {
+        if (beast != null){
+            beast.addExp(value);
+        }
     }
 }

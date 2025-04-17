@@ -1,7 +1,5 @@
 [versions]
 agp = "8.8.2"
-androidSpinkit = "1.4.0"
-anychartAndroidVersion = "1.1.5"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
@@ -11,8 +9,6 @@ activity = "1.10.1"
 constraintlayout = "2.2.1"
 
 [libraries]
-android-spinkit = { module = "com.github.yqb:Android-SpinKit", version.ref = "androidSpinkit" }
-github-anychart-android = { module = "com.github.AnyChart:AnyChart-Android", version.ref = "anychartAndroidVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

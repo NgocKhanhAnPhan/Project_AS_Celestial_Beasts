@@ -32,7 +32,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 }
-
 dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -41,6 +40,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation(libs.android.spinkit)
-    implementation(libs.github.anychart.android)
+    implementation("com.github.ybq:Android-SpinKit:1.4.0")
+    implementation("com.github.AnyChart:AnyChart-Android:1.1.5")
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }
+
+

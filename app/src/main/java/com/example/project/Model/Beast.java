@@ -77,5 +77,11 @@ public class Beast {
 //experience
     public void setExperience(int experience) {this.experience = experience;} public int getExperience() {return experience;}
 
+    // Plus the experience when training:
+    public void addExp(int amount) {
+        this.experience += amount;
+    }
+
+
 
 }

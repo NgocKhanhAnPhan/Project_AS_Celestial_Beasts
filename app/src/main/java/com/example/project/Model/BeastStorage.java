@@ -109,5 +109,20 @@ public class BeastStorage {
         return list;
     }
 
+    public void moveToConvert(int id) {
+        CreateBeast beast = createdBeastMap.get(id);
+        if (beast != null) {
+            beast.setLocation(Location.CONVERT);
+
+            int beastEXP = beast.getBeast().getExperience();
+        }
+    }
+
+
+
+
+
+
+
 
 }

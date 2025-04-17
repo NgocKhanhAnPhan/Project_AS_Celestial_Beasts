@@ -63,4 +63,19 @@
     <string name="home">Home</string>
     <string name="experence">Experence:</string>
     <string name="training_area">Training Area</string>
+    <string name="training_selected">Training Selected</string>
+    <string name="move_to_home">Move to Home</string>
+    <string name="move_to_training">Move to Training</string>
+    <string name="move_to_training_area">Move to Training Area</string>
+    <string name="name_of_type">Name of Type</string>
+    <string name="decription">Decription</string>
+    <string name="battles">Battles</string>
+    <string name="view_charts">View Charts</string>
+    <string name="battle_screen">Battle Screen</string>
+    <string name="next_attack">Next Attack</string>
+    <string name="end_battle">End Battle</string>
+    <string name="convert_exp">Convert EXP</string>
+    <string name="convert_maxhealth_4_exp_1_maxhealth">Convert MaxHealth: 4 EXP - 1 MaxHealth</string>
+    <string name="convert_atk_2_exp_1_atk">Convert ATK: 2 EXP - 1 ATK</string>
+    <string name="convert_def_3_exp_1_def">Convert DEF: 3 EXP - 1 DEF</string>
 </resources>

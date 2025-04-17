@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Project"
         tools:targetApi="31">
         <activity
+            android:name=".View.ConvertEXP"
+            android:exported="false" />
+        <activity
+            android:name=".View.TrainingSelectedPage"
+            android:exported="false" />
+        <activity
             android:name=".View.TrainingSelect"
             android:exported="false" />
         <activity
