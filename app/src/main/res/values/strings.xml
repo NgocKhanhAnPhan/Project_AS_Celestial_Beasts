@@ -78,4 +78,11 @@
     <string name="convert_maxhealth_4_exp_1_maxhealth">Convert MaxHealth: 4 EXP - 1 MaxHealth</string>
     <string name="convert_atk_2_exp_1_atk">Convert ATK: 2 EXP - 1 ATK</string>
     <string name="convert_def_3_exp_1_def">Convert DEF: 3 EXP - 1 DEF</string>
+    <string name="lost">Lost</string>
+    <string name="start_battle">Start Battle</string>
+    <string name="view_chart">View Chart</string>
+    <string name="move_to_statistics">Move to Statistics</string>
+    <string name="loaded">Loaded</string>
+    <string name="save_all_beasts">Save All Beasts</string>
+    <string name="experience">Experience</string>
 </resources>

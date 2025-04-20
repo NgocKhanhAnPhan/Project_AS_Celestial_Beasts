@@ -16,16 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
-        android:id="@+id/btn_tick"
-        android:layout_width="51dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="356dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/c_elem"
         android:layout_width="101dp"
@@ -186,9 +176,18 @@
         android:layout_height="28dp"
         android:layout_marginStart="168dp"
         android:layout_marginTop="168dp"
-        android:text="@string/experence"
+        android:text="@string/experience"
         android:gravity="center"
         android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="348dp"
+        android:layout_marginTop="160dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

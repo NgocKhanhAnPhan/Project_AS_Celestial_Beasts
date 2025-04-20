@@ -57,37 +57,71 @@ public class Home extends AppCompatActivity {
             startActivity(intent);
         });
 
-        training = findViewById(R.id.button7);
-        training.setOnClickListener(v -> {
-            CreateBeast selected = homeAdapter.getSelectedBeast();
-            if (selected != null) {
-                int id = selected.getBeast().getId();
+        //move to Battle files
+        battle = findViewById(R.id.button8);
+        battle.setOnClickListener(v -> {
+            List<CreateBeast> selectedBeasts = homeAdapter.getSelectedBeasts();  // Get list of selected beasts
+            if (!selectedBeasts.isEmpty()) {
+                for (CreateBeast selected : selectedBeasts) {
+                    int id = selected.getBeast().getId();
 
-                // Leave HOME class to training
-                BeastStorage.getInstance().moveToTraining(id);
+                    // Move each selected beast to battle
+                    BeastStorage.getInstance().moveToBattle(id);
+                }
 
-
-                //Update the List
+                // Update the List
                 homeAdapter.setData(BeastStorage.getInstance().getBeastsByLocation(Location.HOME));
                 homeAdapter.notifyDataSetChanged();
 
-                HomeAdapter.setSelectedBeast(Optional.ofNullable(null));
+                // Clear selection
+                homeAdapter.setSelectedBeast(null);
 
-                Toast.makeText(this, selected.getCustomName() + " moved to Training!", Toast.LENGTH_SHORT).show();
+                // Display toast
+                Toast.makeText(this, "Selected beasts moved to Battle!", Toast.LENGTH_SHORT).show();
 
-
-                Toast.makeText(this, selected.getCustomName() + " moved to Training!", Toast.LENGTH_SHORT).show();
+                // Start Battle Activity
+                Intent intent = new Intent(Home.this, Battle.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "No beasts selected!", Toast.LENGTH_SHORT).show();
+                // Start Battle Activity even if no beasts are selected
+                Intent intent = new Intent(Home.this, Battle.class);
+                startActivity(intent);
             }
-
-
-            Intent intent = new Intent(Home.this, Training.class);
-            startActivity(intent);
         });
 
-        battle = findViewById(R.id.button8);
-        battle.setOnClickListener(v -> {
-            Intent intent = new Intent (Home.this, Battle.class);
-            startActivity(intent);
+
+        training = findViewById(R.id.button7);
+        training.setOnClickListener(v -> {
+            List<CreateBeast> selectedBeasts = homeAdapter.getSelectedBeasts();  // Get list of selected beasts
+            if (!selectedBeasts.isEmpty()) {
+                for (CreateBeast selected : selectedBeasts) {
+                    int id = selected.getBeast().getId();
+
+                    // Move each selected beast to training
+                    BeastStorage.getInstance().moveToTraining(id);
+                }
+
+                // Update the List
+                homeAdapter.setData(BeastStorage.getInstance().getBeastsByLocation(Location.HOME));
+                homeAdapter.notifyDataSetChanged();
+
+                // Clear selection
+                homeAdapter.setSelectedBeast(null);
+
+                // Display toast
+                Toast.makeText(this, "Selected beasts moved to Training!", Toast.LENGTH_SHORT).show();
+
+                // Start Training Activity
+                Intent intent = new Intent(Home.this, Training.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "No beasts selected!", Toast.LENGTH_SHORT).show();
+                // Start Training Activity even if no beasts are selected
+                Intent intent = new Intent(Home.this, Training.class);
+                startActivity(intent);
+            }
+
         });
 
     }
@@ -101,6 +135,7 @@ public class Home extends AppCompatActivity {
         for (CreateBeast beast : BeastStorage.getInstance().getAllBeasts().values()) {
             if (beast.getLocation() == Location.HOME) {  // Only selected beast in HOME
                 homeBeasts.add(beast);
+                beast.restoreHP();
             }
         }
 

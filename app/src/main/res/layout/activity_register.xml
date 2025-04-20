@@ -16,7 +16,7 @@
         android:layout_marginBottom="20sp"
         android:textStyle="bold"
         android:textSize="40sp"
-        android:textColor="#4527A0"
+        android:textColor="#0033CC"
         android:gravity="center"
         android:text="@string/register1" />
 
@@ -54,6 +54,7 @@
         android:id="@+id/button4"
         android:layout_width="105dp"
         android:layout_height="59dp"
+        android:backgroundTint="#0033CC"
         android:layout_marginBottom="20sp"
         android:text="@string/register" />
 

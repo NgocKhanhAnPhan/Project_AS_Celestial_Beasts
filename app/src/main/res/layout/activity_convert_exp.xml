@@ -8,7 +8,7 @@
     tools:context=".View.ConvertEXP">
 
     <Button
-        android:id="@+id/button21"
+        android:id="@+id/buttonatt"
         android:layout_width="363dp"
         android:layout_height="61dp"
         android:layout_marginStart="24dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/buttondefe"
         android:layout_width="363dp"
         android:layout_height="61dp"
         android:layout_marginStart="24dp"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button20"
+        android:id="@+id/buttonhealth"
         android:layout_width="363dp"
         android:layout_height="61dp"
         android:layout_marginStart="24dp"
@@ -54,9 +54,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/re_select"
-        android:layout_width="386dp"
-        android:layout_height="198dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="397dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="504dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -1,5 +1,13 @@
 package com.example.project.Model;
 
+import android.content.Context;
+import android.widget.Button;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +20,8 @@ public class BeastStorage {
     private HashMap<Integer, CreateBeast> createdBeastMap = new HashMap<>();
 
     private HashMap<Integer, CreateBeast> trainingMap = new HashMap<>();
+
+    private HashMap<Integer, CreateBeast> battleMap = new HashMap<>();
 
     private int nextId = 1;
 
@@ -44,6 +54,15 @@ public class BeastStorage {
     public void removeBeast(int id) {
         createdBeastMap.remove(id);
         trainingMap.remove(id);
+        battleMap.remove(id);
+    }
+
+    //move battle
+    public void moveToBattle(int id){
+        CreateBeast beast = createdBeastMap.get(id);
+        if (beast != null){
+            beast.setLocation(Location.BATTLE);
+        }
     }
 
     // move training:
@@ -60,12 +79,18 @@ public class BeastStorage {
         return trainingMap;
     }
 
+    //get beast from battle
+    public Map<Integer, CreateBeast> getBattleBeasts() {
+        return battleMap;
+    }
+
     //move to home
     public void moveToHome(int id) {
-        CreateBeast beast = trainingMap.get(id);
+        CreateBeast beast = createdBeastMap.get(id);
         if (beast != null) {
             beast.setLocation(Location.HOME);
             trainingMap.remove(id);
+            battleMap.remove(id);
         }
     }
 //count in home
@@ -118,11 +143,39 @@ public class BeastStorage {
         }
     }
 
+    public void updateBeast(CreateBeast createBeast) {
+        // Update Beast in Hash Map by Id  is key.
+        if (createdBeastMap.containsKey(createBeast.getBeast().getId())) {
+            createdBeastMap.put(createBeast.getBeast().getId(), createBeast);
+        } else {
+            // Add if none
+            createdBeastMap.put(createBeast.getBeast().getId(), createBeast);
+        }
+    }
 
+    public void saveData(Context context) {
+        try {
+            FileOutputStream fos = context.openFileOutput("beasts.dat", Context.MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(createdBeastMap);
+            oos.close();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-
-
-
+    public void loadData(Context context) {
+        try {
+            FileInputStream fis = context.openFileInput("beasts.dat");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            createdBeastMap = (HashMap<Integer, CreateBeast>) ois.readObject();
+            ois.close();
+            fis.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

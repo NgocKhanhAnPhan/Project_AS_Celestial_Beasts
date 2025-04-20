@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -22,17 +23,13 @@ import java.util.List;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
 
     private Context hContext;
-    private static List<CreateBeast> beastList = new ArrayList<>();
+    private List<CreateBeast> beastList = new ArrayList<>();
+
+    private List<CreateBeast> selectedBeasts = new ArrayList<>();
 
 
-    private CreateBeast selectedBeast = null;
-
-    public static void setSelectedBeast(Object o) {
-
-    }
-
-    public CreateBeast getSelectedBeast() {
-        return selectedBeast;
+    public List<CreateBeast> getSelectedBeasts() {
+        return selectedBeasts;  // Return the list of selected beasts
     }
 
 
@@ -40,15 +37,19 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         this.hContext = hContext;
     }
 
+
     public void setData(List<CreateBeast> list) {
         this.beastList = list;
         notifyDataSetChanged();
     }
 
     // Update RecyclerView when selected
-
     public void setSelectedBeast(CreateBeast beast) {
-        this.selectedBeast = beast;
+        if (selectedBeasts.contains(beast)) {
+            selectedBeasts.remove(beast);
+        } else {
+            selectedBeasts.add(beast);
+        }
         notifyDataSetChanged();
     }
 
@@ -76,14 +77,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         holder.tvmaxheal.setText(String.valueOf(beast.getBeast().getMaxHeal()));
         holder.imagebeast.setImageResource(beast.getBeast().getImageResource());
 
-        holder.radioButton.setOnCheckedChangeListener(null); // Reset listener when view is reuse
+        holder.btn_tick.setOnCheckedChangeListener(null); // Reset listener when view is reuse
 
-        holder.radioButton.setChecked(beast.equals(selectedBeast));
+        // Set the checkbox checked based on whether the beast is in selectedBeasts
+        holder.btn_tick.setChecked(selectedBeasts.contains(beast));
 
-        holder.radioButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        holder.btn_tick.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-                selectedBeast = beast;
-                notifyDataSetChanged(); // Update to reset different radio button
+                if (!selectedBeasts.contains(beast)) {
+                    selectedBeasts.add(beast);  // Add to selected list
+                }
+            } else {
+                selectedBeasts.remove(beast);  // Remove from selected list
             }
         });
 
@@ -100,7 +105,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
         private TextView tvele, tvcha, tvdefe, tvatt, tvheal, tvmaxheal, tvname, tvex;
 
-        RadioButton radioButton;
+        CheckBox btn_tick;
 
 
         public HomeViewHolder(@NonNull View itemView) {
@@ -112,7 +117,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
             tvdefe= itemView.findViewById(R.id.c_defen);
             tvheal = itemView.findViewById(R.id.c_health);
             tvmaxheal = itemView.findViewById(R.id.c_maxhel);
-            radioButton = itemView.findViewById(R.id.btn_tick);
+            btn_tick = itemView.findViewById(R.id.checkBox2);
             tvname = itemView.findViewById(R.id.textView25);
             tvex = itemView.findViewById(R.id.textView27);
         }

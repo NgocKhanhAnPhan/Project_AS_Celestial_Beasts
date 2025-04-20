@@ -1,14 +1,16 @@
 package com.example.project.Model;
 
-public class CreateBeast {
-    String customName;
-    Beast beast;
-    int trainingCount;
+import java.io.Serializable;
+
+public class CreateBeast implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String customName;
+    private Beast beast;
+
 
     public CreateBeast (String customName, Beast beast){
         this.customName = customName;
         this.beast = beast;
-        this.trainingCount = 0;
     }
 
     private Location location = Location.HOME;
@@ -21,13 +23,6 @@ public class CreateBeast {
         this.location = location;
     }
 
-    public int getTrainingCount() {
-        return trainingCount;
-    }
-
-    public void setTrainingCount(int trainingCount) {
-        this.trainingCount = trainingCount;
-    }
 
     public void setBeast(Beast beast) {
         this.beast = beast;
@@ -45,9 +40,27 @@ public class CreateBeast {
         return beast;
     }
 
+    //Add value for index
     public void addExp(int value) {
         if (beast != null){
             beast.addExp(value);
         }
+    }
+
+    // full HP
+    // restore the HP
+    public void restoreHP(){
+        beast.restoreHP();
+    }
+
+    // beast user controll
+    private boolean isPlayerControlled;
+
+    public boolean isPlayerControlled() {
+        return isPlayerControlled;
+    }
+
+    public void setPlayerControlled(boolean isPlayerControlled) {
+        this.isPlayerControlled = isPlayerControlled;
     }
 }

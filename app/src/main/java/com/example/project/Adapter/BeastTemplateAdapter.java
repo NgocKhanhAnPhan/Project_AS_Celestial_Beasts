@@ -105,7 +105,7 @@ public class BeastTemplateAdapter extends RecyclerView.Adapter<BeastTemplateAdap
             tvdefe= itemView.findViewById(R.id.c_defen);
             tvheal = itemView.findViewById(R.id.c_health);
             tvmaxheal = itemView.findViewById(R.id.c_maxhel);
-            radioButton = itemView.findViewById(R.id.btn_tick);
+            radioButton = itemView.findViewById(R.id.radioButton);
         }
 
     }

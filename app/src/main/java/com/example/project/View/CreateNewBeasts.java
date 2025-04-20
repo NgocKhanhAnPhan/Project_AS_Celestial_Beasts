@@ -109,13 +109,13 @@ public class CreateNewBeasts extends AppCompatActivity {
 //Data of beast Template
         public List<Beast> getListBeast(){
             List<Beast> list = new ArrayList<>();
-            list.add(new Beast("Fire", "Phoenix", 6, 9, 18, 18, R.drawable.image1));
+            list.add(new Beast("Fire", "Phoenix", 6, 9, 14, 14, R.drawable.image1));
             list.add(new Beast("Water", "Tortoise", 9, 7, 16, 16, R.drawable.image2));
-            list.add(new Beast("Wood", "Dragon", 8, 7, 19, 19, R.drawable.image3));
-            list.add(new Beast("Mental", "Tiger", 7, 9, 15, 15, R.drawable.image4));
-            list.add(new Beast("Earth", "Qilin", 8, 7, 20, 20, R.drawable.image5));
-            list.add(new Beast("Light", "Unicorn", 9, 6, 19, 19, R.drawable.image6));
-            list.add(new Beast("Dark", "Snake", 7, 8, 17, 17, R.drawable.image7));
+            list.add(new Beast("Wood", "Dragon", 8, 7, 13, 13, R.drawable.image3));
+            list.add(new Beast("Mental", "Tiger", 7, 9, 12, 12, R.drawable.image4));
+            list.add(new Beast("Earth", "Qilin", 8, 7, 17, 17, R.drawable.image5));
+            list.add(new Beast("Light", "Unicorn", 9, 6, 15, 15, R.drawable.image6));
+            list.add(new Beast("Dark", "Snake", 7, 8, 13, 13, R.drawable.image7));
             return list;
         }
     }

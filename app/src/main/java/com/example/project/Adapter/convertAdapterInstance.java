@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -17,12 +18,19 @@ import com.example.project.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertAdapter extends RecyclerView.Adapter<ConvertAdapter.ConvertViewHolder> {
+public class convertAdapterInstance extends RecyclerView.Adapter<convertAdapterInstance.ConvertViewHolder> {
     private Context lContext;
     private List<CreateBeast> beastList = new ArrayList<>();
 
 
-    public ConvertAdapter(Context lContext, List<CreateBeast> beastList) {
+    public int selectedPosition = -1;
+
+    public void setSelectedPosition(int position) {
+        selectedPosition = position;
+        notifyDataSetChanged();
+    }
+
+    public convertAdapterInstance(Context lContext, List<CreateBeast> beastList) {
         this.lContext = lContext;
         this.beastList = beastList;
     }
@@ -31,7 +39,7 @@ public class ConvertAdapter extends RecyclerView.Adapter<ConvertAdapter.ConvertV
     @Override
     public ConvertViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(lContext).inflate(R.layout.home_detail_beast, parent, false);
-        return new ConvertAdapter.ConvertViewHolder(view);
+        return new convertAdapterInstance.ConvertViewHolder(view);
     }
 
     @Override
@@ -49,6 +57,20 @@ public class ConvertAdapter extends RecyclerView.Adapter<ConvertAdapter.ConvertV
         holder.tvmaxheal.setText(String.valueOf(beast.getBeast().getMaxHeal()));
         holder.imageBeast.setImageResource(beast.getBeast().getImageResource());
 
+        holder.btn_tick.setChecked(position == selectedPosition);
+
+        holder.btn_tick.setOnClickListener(v -> {
+            int clickedPosition = holder.getAdapterPosition();
+            if (selectedPosition == clickedPosition) {
+                // don't click
+                selectedPosition = RecyclerView.NO_POSITION;
+            } else {
+                // click new
+                selectedPosition = clickedPosition;
+            }
+            notifyDataSetChanged(); // Refresh to update selected radio button
+        });
+
     }
 
     @Override
@@ -56,11 +78,16 @@ public class ConvertAdapter extends RecyclerView.Adapter<ConvertAdapter.ConvertV
         return (beastList != null) ? beastList.size() : 0;
     }
 
+    public void updateData(List<CreateBeast> newList) {
+        beastList.clear();
+        beastList.addAll(newList);
+        notifyDataSetChanged();
+    }
     public class ConvertViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView imageBeast;
         private TextView tvele, tvcha, tvdefe, tvatt, tvheal, tvmaxheal, tvname, tvex;
-        private RadioButton radioButton;
+        private CheckBox btn_tick;
 
         public ConvertViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,7 +100,22 @@ public class ConvertAdapter extends RecyclerView.Adapter<ConvertAdapter.ConvertV
             tvmaxheal = itemView.findViewById(R.id.c_maxhel);
             tvname = itemView.findViewById(R.id.textView25);
             tvex = itemView.findViewById(R.id.textView27);
-            radioButton = itemView.findViewById(R.id.btn_tick);
+            btn_tick = itemView.findViewById(R.id.checkBox2);
         }
+    }
+
+    public CreateBeast getSelectedBeast() {
+        if (selectedPosition != -1 && selectedPosition < beastList.size()) {
+            return beastList.get(selectedPosition);
+        }
+        return null;
+    }
+
+    // select id of slected beast.
+    public int getSelectedBeastId() {
+        if (selectedPosition != -1 && selectedPosition < beastList.size()) {
+            return beastList.get(selectedPosition).getBeast().getId();
+        }
+        return -1;
     }
 }

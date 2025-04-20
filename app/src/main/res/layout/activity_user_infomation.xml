@@ -62,6 +62,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginBottom="236dp"
         android:text="@string/move_to_home_page"
+        android:backgroundTint="#006600"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

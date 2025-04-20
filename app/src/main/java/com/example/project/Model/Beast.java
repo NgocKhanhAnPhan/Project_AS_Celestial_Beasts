@@ -1,6 +1,10 @@
 package com.example.project.Model;
 
-public class Beast {
+import java.io.Serializable;
+import java.util.Random;
+
+public class Beast implements Serializable {
+    private static final long serialVersionUID = 1L;
      String ele;
      String chara;
      private int imageResource;
@@ -82,6 +86,77 @@ public class Beast {
         this.experience += amount;
     }
 
+     // restore the HP
+      public void restoreHP(){
+        heal = maxHeal;
+      }
+
+    public void heal(int amount) {
+        // Heal the beast, but not exceeding max health
+        this.heal = Math.min(maxHeal, this.heal + amount);
+    }
+
+      //battle
+      public int attack() {
+          int baseDamage = this.attack;
+          int randomFactor = new Random().nextInt(5); // bonus random (0-4)
+          return baseDamage + randomFactor;
+      }
+
+    public void defense(int damage) {
+        int actualDamage = Math.max(damage - this.defe, 1); // tối thiểu 1
+        this.heal -= actualDamage;
+        if (this.heal < 0) this.heal = 0;
+    }
+
+    public boolean isAlive() {
+        return this.heal > 0;
+    }
 
 
+    public void addExperience(int exp) {
+        this.experience += exp;
+    }
+
+    //add lost
+    private int losses = 0;
+
+    public void addLoss() {
+        losses++;
+    }
+
+    public int getLosses() {
+        return losses;
+    }
+
+    //add win
+    private int wins = 0;
+
+    public void addWin() {
+        wins++;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    // add match and train
+    private int matchCount = 0;
+    private int trainCount = 0;
+
+    public int getMatchCount() {
+        return matchCount;
+    }
+
+    public void addMatchPlayed() {
+        matchCount++;
+    }
+
+    public int getTrainCount() {
+        return trainCount;
+    }
+
+    public void addTrainCount() {
+        trainCount++;
+    }
 }

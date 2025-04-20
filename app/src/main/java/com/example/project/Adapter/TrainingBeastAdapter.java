@@ -1,9 +1,11 @@
 package com.example.project.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -53,10 +55,17 @@ public class TrainingBeastAdapter extends RecyclerView.Adapter<TrainingBeastAdap
         holder.tvmaxheal.setText(String.valueOf(beast.getBeast().getMaxHeal()));
         holder.imageBeast.setImageResource(beast.getBeast().getImageResource());
 
-        holder.radioButton.setChecked(position == selectedPosition);
+        holder.btn_tick.setChecked(position == selectedPosition);
 
-        holder.radioButton.setOnClickListener(v -> {
-            selectedPosition = holder.getAdapterPosition();
+        holder.btn_tick.setOnClickListener(v -> {
+            int clickedPosition = holder.getAdapterPosition();
+            if (selectedPosition == clickedPosition) {
+                // don't click
+                selectedPosition = RecyclerView.NO_POSITION;
+            } else {
+                // click new
+                selectedPosition = clickedPosition;
+            }
             notifyDataSetChanged(); // Refresh to update selected radio button
         });
 
@@ -79,8 +88,9 @@ public class TrainingBeastAdapter extends RecyclerView.Adapter<TrainingBeastAdap
 
         private ImageView imageBeast;
         private TextView tvele, tvcha, tvdefe, tvatt, tvheal, tvmaxheal, tvname, tvex;
-        private RadioButton radioButton;
+        private CheckBox btn_tick;
 
+        @SuppressLint("WrongViewCast")
         public TrainingBeastViewHolder(@NonNull View itemView) {
             super(itemView);
             imageBeast = itemView.findViewById(R.id.imageView2);
@@ -92,10 +102,10 @@ public class TrainingBeastAdapter extends RecyclerView.Adapter<TrainingBeastAdap
             tvmaxheal = itemView.findViewById(R.id.c_maxhel);
             tvname = itemView.findViewById(R.id.textView25);
             tvex = itemView.findViewById(R.id.textView27);
-            radioButton = itemView.findViewById(R.id.btn_tick);
+            btn_tick = itemView.findViewById(R.id.checkBox2);
         }
     }
-
+    //selected beast
     public CreateBeast getSelectedBeast() {
         if (selectedPosition != -1 && selectedPosition < beastList.size()) {
             return beastList.get(selectedPosition);
@@ -103,6 +113,7 @@ public class TrainingBeastAdapter extends RecyclerView.Adapter<TrainingBeastAdap
         return null;
     }
 
+    // select id of slected beast.
     public int getSelectedBeastId() {
         if (selectedPosition != -1 && selectedPosition < beastList.size()) {
             return beastList.get(selectedPosition).getBeast().getId();

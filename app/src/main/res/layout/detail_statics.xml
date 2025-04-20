@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="200sp">
 
     <TextView
         android:id="@+id/textView34"
-        android:layout_width="399dp"
+        android:layout_width="385dp"
         android:layout_height="167dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/textview_home"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,9 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
-        android:layout_marginEnd="28dp"
-        android:text="@string/training"
+        android:layout_marginEnd="52dp"
         android:gravity="center"
+        android:text="@string/training"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +32,7 @@
         android:layout_width="107dp"
         android:layout_height="107dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="28dp"
         android:src="@drawable/image1"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp"
@@ -41,7 +41,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView35"
+        android:id="@+id/name"
         android:layout_width="245dp"
         android:layout_height="36dp"
         android:layout_marginStart="136dp"
@@ -53,12 +53,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView36"
-        android:layout_width="127dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="76dp"
+        android:id="@+id/element"
+        android:layout_width="107dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="140dp"
         android:text="@string/element"
+        android:gravity="center"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,8 +80,8 @@
         android:id="@+id/textView38"
         android:layout_width="59dp"
         android:layout_height="22dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="128dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="216dp"
         android:gravity="center"
         android:text="Wins"
         android:textStyle="bold"
@@ -87,33 +89,58 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView41"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/battle"
+        android:layout_width="47dp"
+        android:layout_height="23dp"
         android:layout_marginStart="136dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="140dp"
+        android:text="TextView"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/win"
+        android:layout_width="68dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="84dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView42"
+        android:id="@+id/train"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="52dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView43"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        android:layout_marginEnd="28dp"
-        android:text="TextView"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="116dp"
+        android:text="@string/lost"
+        android:gravity="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lost"
+        android:layout_width="57dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="144dp"
+        android:gravity="center"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 

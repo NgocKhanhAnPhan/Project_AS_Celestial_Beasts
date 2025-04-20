@@ -1,9 +1,12 @@
 package com.example.project.View;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -14,21 +17,24 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.anychart.ui.contextmenu.Item;
-import com.example.project.Adapter.HomeAdapter;
 import com.example.project.Adapter.TrainingBeastAdapter;
+import com.example.project.Model.Beast;
 import com.example.project.Model.BeastStorage;
 import com.example.project.Model.CreateBeast;
 import com.example.project.Model.Location;
-import com.example.project.Model.TrainingModeManager;
 import com.example.project.R;
+import com.github.ybq.android.spinkit.SpinKitView;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Training extends AppCompatActivity {
     private Button btn_trainingselect, mvtohome, btn_trainingexp, btn_convert;
 
+    private TextView txt_status;
+
     private RecyclerView recyclerView;
+    private SpinKitView spinKitView;
     private TrainingBeastAdapter trainingBeastAdapter;
 
     private int selectedPosition;
@@ -67,8 +73,21 @@ public class Training extends AppCompatActivity {
         //button move to home
         mvtohome = findViewById(R.id.button11);
         mvtohome.setOnClickListener(v -> {
-            Intent intent = new Intent(Training.this, Home.class);
-            startActivity(intent);
+            int selectedBeastId = trainingBeastAdapter.getSelectedBeastId();
+            if (selectedBeastId != -1) {
+                // Move Beast from Training to Home
+                BeastStorage.getInstance().moveToHome(selectedBeastId);
+                // update after mopve
+                List<CreateBeast> updatedList = BeastStorage.getInstance().getBeastsByLocation(Location.TRAINING);
+                trainingBeastAdapter.updateData(updatedList);
+
+                // tranfer to home clas
+                Intent intent = new Intent(Training.this, Home.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(Training.this, Home.class);
+                startActivity(intent);
+            }
         });
 
         btn_convert = findViewById(R.id.button18);
@@ -87,17 +106,15 @@ public class Training extends AppCompatActivity {
 
     protected void onResume() {
         super.onResume();
-        // Update ist
-        List<CreateBeast> updatedList = BeastStorage.getInstance().getBeastsByLocation(Location.TRAINING);
-        trainingBeastAdapter.updateData(updatedList);
 
         // Get intent from training selected again
         Intent intent = getIntent();
         selectedPosition = intent.getIntExtra("selectedPosition", RecyclerView.NO_POSITION);
 
+        btn_trainingexp = findViewById(R.id.button12);
+
         // If address valid
         if (selectedPosition != RecyclerView.NO_POSITION) {
-            btn_trainingexp = findViewById(R.id.button12);
             switch (selectedPosition) {
                 case 0:
                     btn_trainingexp.setText("+1 Experience");
@@ -110,23 +127,82 @@ public class Training extends AppCompatActivity {
                     break;
             }
         }
-        // Make the text animation. Using Ai to know.
+        // Make the text animation. Using Ai to do.
         Handler handler = new Handler();
         String baseText = "The Beast is training. Please wait a moment";
-        final int [] dotCount = {0};
-        Runnable loadingRunnable;
-        Runnable stopRunable;
+        final int[] dotCount = {0};
+        AtomicReference<Runnable> loadingRunnable = new AtomicReference<>();
+
+        txt_status = findViewById(R.id.txt_status);
 
         btn_trainingexp.setOnClickListener(v -> {
+
+            SpinKitView spinKitView = findViewById(R.id.spin_kit);
+
+
+            int selectedBeastId = trainingBeastAdapter.getSelectedBeastId();
+
+            // check the item
+            if (selectedBeastId == -1) {
+                Toast.makeText(Training.this, "Please select a beast first!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            spinKitView.setVisibility(View.VISIBLE); // show spinkit
+
             String buttonText = btn_trainingexp.getText().toString();
             trainingButtonClickCount++;
-            int expToApp = Integer.parseInt(buttonText.replace("+",""));
-            int duration = (expToApp == 1) ? 2000 : 4000;
 
-            TrainingBeastAdapter seclectedItem = trainingBeastAdapter
+            String numericPart = buttonText.replaceAll("[^0-9]", "");  // Keeps only the digits
+            final int expToApp = Integer.parseInt(numericPart);
+            // Set the training duration based on the EXP
+            int duration = expToApp == 1 ? 10000 : (expToApp == 2 ? 30000 : 60000);  // 10s = 10000 ms, 30 = 30000 ms, 1 minutes = 60000 ms
+
+            //Reset dot count for animation
+            dotCount[0] = 0;
+
+            loadingRunnable.set(new Runnable() {
+                @Override
+                public void run() {
+                    String dots = new String(new char[dotCount[0] % 4]).replace("\0", ".");
+                    txt_status.setText(baseText + dots);
+                    dotCount[0]++;
+                    handler.postDelayed(this, 500); ; // Update every 500 ms
+                }
+            });
+
+            // Start the animation
+            handler.post(loadingRunnable.get());
+
+            // Stop the animation after the duration (1, 2, or 3 minutes)
+            Runnable stopRunable = () -> {
+                handler.removeCallbacks(loadingRunnable.get());
+                // hide spinner after training
+                spinKitView.setVisibility(View.GONE);
+                txt_status.setText("Training complete! Beast gained +" + expToApp + " EXP.");
+
+                if (selectedBeastId != -1) {
+                    CreateBeast createBeast = BeastStorage.getInstance().getBeastById(selectedBeastId);  // get beast from BeastStorage
+                    Beast beast = createBeast.getBeast();  // get beast from CreateBeast
+                    beast.setExperience(beast.getExperience() + expToApp);  // + EXP for this
+
+                    beast.addTrainCount();
+                    BeastStorage.getInstance().updateBeast(createBeast);
+                }
+
+                // Update list in RecyclerView
+                List<CreateBeast> updatedList = BeastStorage.getInstance().getBeastsByLocation(Location.TRAINING);
+                trainingBeastAdapter.updateData(updatedList);
+
+
+            };
+
+            handler.postDelayed(stopRunable, duration);
+
+            btn_trainingexp.setEnabled(false);
+            handler.postDelayed(() -> btn_trainingexp.setEnabled(true), duration);
 
         });
-
 
     }
 

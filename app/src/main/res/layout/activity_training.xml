@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Training">
+    tools:context=".View.Training"
+    tools:ignore="ExtraText">
 
     <Button
         android:id="@+id/button11"
@@ -16,6 +17,20 @@
         android:text="@string/move_to_home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="344dp"
+        app:SpinKit_Color="#FF4081"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView29"
@@ -58,6 +73,7 @@
         android:layout_height="68dp"
         android:layout_marginStart="40dp"
         android:text="Choose the training mode."
+        android:backgroundTint="#006600"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -68,6 +84,30 @@
         android:layout_marginStart="136dp"
         android:layout_marginBottom="140dp"
         android:text="@string/convert_exp"
+        android:backgroundTint="#993399"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="396dp"
+        android:layout_height="213dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="304dp"
+        android:background="@drawable/textview_home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_status"
+        android:layout_width="382dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="452dp"
+        android:gravity="center"
+        android:text="Waiting ..."
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

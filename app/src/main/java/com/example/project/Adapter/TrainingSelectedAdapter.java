@@ -48,8 +48,6 @@ public class TrainingSelectedAdapter extends RecyclerView.Adapter<TrainingSelect
         this.tContext = tContext;
     }
 
-
-
     @NonNull
     @Override
     public TrainingSelectedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

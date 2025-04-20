@@ -13,12 +13,12 @@
         android:layout_height="60dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/textview_border"
+        android:gravity="center"
         android:text="@string/statistics"
         android:textColor="@color/white"
-        android:textStyle="bold"
-        android:gravity="center"
         android:textSize="40sp"
-        android:background="@drawable/textview_border"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,8 +34,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/re_statistics"
-        android:layout_width="386dp"
-        android:layout_height="354dp"
+        android:layout_width="397dp"
+        android:layout_height="450dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="244dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,30 +45,32 @@
         android:id="@+id/button14"
         android:layout_width="242dp"
         android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="628dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="#CC99CC"
         android:text="@string/view_charts"
         android:textColor="@color/black"
         android:textSize="15sp"
-        android:background="@drawable/pink_border_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button15"
         android:layout_width="125dp"
         android:layout_height="52dp"
-        android:layout_marginTop="628dp"
         android:layout_marginEnd="12dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="#006600"
         android:text="@string/home_page"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/editTextText"
         android:layout_width="166dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="text"
         android:text="Statistics Screen"
